@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -12,6 +14,7 @@ import com.example.hotelapp.ui.main.RegistrationForm;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class Login extends AppCompatActivity {
+    private static final String TAG = "Login";
     TextInputEditText userEt,passEt;
     Button loginBtn;
 
@@ -23,8 +26,14 @@ public class Login extends AppCompatActivity {
         passEt = findViewById(R.id.password);
         loginBtn = findViewById(R.id.login);
 
-        checktoSignIn();
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e(TAG, "onClick: btn clicked" );
+                checktoSignIn();
 
+            }
+        });
     }
 
     private boolean isUserNameValid(){
@@ -54,15 +63,18 @@ public class Login extends AppCompatActivity {
 
 
     private void checktoSignIn() {
-        if (!isUserNameValid() || !isPasswordValid()){
+        if (!isUserNameValid() && !isPasswordValid()){
             Toast.makeText(this, "Erorrr", Toast.LENGTH_SHORT).show();
 
-        }else if (userEt.getEditableText().toString()=="admin" && passEt.getEditableText().toString()=="admin"){
-            Intent i = new Intent(Login.this, RegistrationForm.class);
+        }else if (userEt.getEditableText().toString().equals("admin") && passEt.getEditableText().toString().equals("admin")){
+            Log.e(TAG, "checktoSignIn: : "+userEt.getEditableText().toString() );
+
+            Intent i = new Intent(Login.this, EmployerForm.class);
             startActivity(i);
             finish();
-        }else if (userEt.getEditableText().toString()=="user" && passEt.getEditableText().toString()=="user"){
-            Intent i = new Intent(Login.this, EmployerForm.class);
+        }else if (userEt.getEditableText().toString().equals("user") && passEt.getEditableText().toString().equals("user")){
+            Log.e(TAG, "checktoSignIn: : "+userEt.getEditableText().toString() );
+            Intent i = new Intent(Login.this, RegistrationForm.class);
             startActivity(i);
             finish();
         }

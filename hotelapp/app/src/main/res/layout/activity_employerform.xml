@@ -6,4 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.EmployerForm">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/rv"
+        android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

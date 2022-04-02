@@ -13,11 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HotelApp">
         <activity
-            android:name=".ui.RoomReservation"
-            android:exported="false" />
+            android:name=".ui.RoomReservation" />
         <activity
-            android:name=".ui.EmployerForm"
-            android:exported="false" />
+            android:name=".ui.EmployerForm" />
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true">

@@ -19,44 +19,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/hotel" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="User name"
+            android:layout_height="120dp"
+            android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@+id/imageView">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/user_name"
+            <EditText
+                android:padding="3dp"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                android:id="@+id/room_id"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:id="@+id/textInputLayout2"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            app:passwordToggleEnabled="true">
-
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-
-                android:inputType="textPassword"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:hint="room number"
                 />
-        </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Spinner
+                    android:layout_weight="0.5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></Spinner>
+                <TextView
+                    android:textSize="18sp"
+                    android:id="@+id/cost_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"/>
+            </LinearLayout>
+        </LinearLayout>
+
 
         <Button
             android:id="@+id/book"
