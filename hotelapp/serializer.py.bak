@@ -23,7 +23,7 @@ class GuestSerializer(serializers.ModelSerializer):
     #guest_reserve_period= serializers.StringRelatedField (many=True,read_only=True)
     #guest_reserve_period= serializers.SlugRelatedField(slug_field='period',many=True,read_only=True)
     #guest_reserve_period= serializers.HyperlinkedRelatedField(view_name='period',many=True,read_only=True)
-    guest_reserve_period = ReservationSerializer(read_only=True, many=True)
+    guest_reserve_period = ReservationSerializer( many=True)
 
     class Meta:
         model=Guest

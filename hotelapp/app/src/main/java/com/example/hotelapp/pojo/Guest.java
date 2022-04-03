@@ -1,5 +1,9 @@
 package com.example.hotelapp.pojo;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+
 public class Guest {
     private int id;
     private int passid;
@@ -7,9 +11,13 @@ public class Guest {
     private String email;
     private int mobile;
     private String nationality;
-
+    @SerializedName("guest_reserve_period")
+    private ArrayList<ReservationListModel>reservedList;
     public int getId() {
         return id;
+    }
+
+    public Guest() {
     }
 
     public void setId(int id) {
@@ -22,6 +30,14 @@ public class Guest {
         this.email = email;
         this.mobile = mobile;
         this.nationality = nationality;
+    }
+
+    public ArrayList<ReservationListModel> getReservedList() {
+        return reservedList;
+    }
+
+    public void setReservedList(ArrayList<ReservationListModel> reservedList) {
+        this.reservedList = reservedList;
     }
 
     public int getPassid() {

@@ -1,5 +1,6 @@
 package com.example.hotelapp.ui.main;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hotelapp.R;
 import com.example.hotelapp.pojo.Guest;
+import com.example.hotelapp.pojo.ReservationListModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.GuestViewHolder> {
+    private static final String TAG = "GuestListAdapter";
     private List<Guest> guestsList = new ArrayList<>();
 
     @NonNull
@@ -25,9 +28,15 @@ public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.Gues
 
     @Override
     public void onBindViewHolder(@NonNull GuestViewHolder holder, int position) {
-        holder.passTv.setText(guestsList.get(position).getPassid()+"");
-        holder.nameTv.setText(guestsList.get(position).getName());
-        holder.mobileTv.setText(guestsList.get(position).getMobile()+"");
+        List<ReservationListModel>b = guestsList.get(position).getReservedList();
+        if(b.get(0)!=null){
+            Log.e(TAG, "onBindViewHolder: "+b.get(0).getPeriod());
+
+        }
+        Log.e(TAG, "onBindViewHolder: "+b);
+        holder.idTv.setText(guestsList.get(position).getName());
+        holder.roomIdTv.setText(guestsList.get(position).getReservedList().get(0).getRoom_id()+"");
+        holder.periodTv.setText(guestsList.get(position).getReservedList().get(0).getPeriod()+"");
     }
 
     @Override
@@ -35,16 +44,18 @@ public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.Gues
         return guestsList.size();
     }
     public void setList(List<Guest> guestsList){
+
         this.guestsList=guestsList;
+
     }
 
     public class GuestViewHolder extends RecyclerView.ViewHolder{
-        TextView passTv,nameTv,mobileTv;
+        TextView idTv,roomIdTv,periodTv;
         public GuestViewHolder(@NonNull View itemView) {
             super(itemView);
-            passTv=itemView.findViewById(R.id.passid);
-            nameTv=itemView.findViewById(R.id.name);
-            mobileTv=itemView.findViewById(R.id.mobile);
+            idTv=itemView.findViewById(R.id.passid);
+            roomIdTv=itemView.findViewById(R.id.name);
+            periodTv=itemView.findViewById(R.id.mobile);
         }
     }
 }

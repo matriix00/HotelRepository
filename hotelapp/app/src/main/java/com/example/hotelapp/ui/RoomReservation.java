@@ -27,6 +27,7 @@ public class RoomReservation extends AppCompatActivity {
     EditText roomet;
     Button bookBtn;
     Spinner spinner;
+    ArrayList<String>spinList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,14 @@ public class RoomReservation extends AppCompatActivity {
         roomet = findViewById(R.id.room_id);
         costtv = findViewById(R.id.cost_tv);
         bookBtn = findViewById(R.id.book);
+        spinList= new ArrayList<>();
+        spinList.add("Select room type");
+        spinList.add("Single");
+        spinList.add("Double");
+        spinList.add("Sweat");
+        ArrayAdapter<String> spinadapte = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,spinList);
+        spinner.setAdapter(spinadapte);
+
 
         bookBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,14 +56,8 @@ public class RoomReservation extends AppCompatActivity {
     }
 
     private boolean  checkSpinn() {
-        ArrayList<String>spinList = new ArrayList<>();
-        spinList.add("Select room type");
-        spinList.add("Single");
-        spinList.add("Double");
-        spinList.add("Sweat");
-        ArrayAdapter<String> spinadapte = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,spinList);
-        spinner.setAdapter(spinadapte);
-        if (spinner.getSelectedItem()=="Select room type"){
+
+               if (spinner.getSelectedItem()=="Select room type"){
             costtv.setText("");
             Toast.makeText(this, "Please Fill spinner", Toast.LENGTH_SHORT).show();
             return false;

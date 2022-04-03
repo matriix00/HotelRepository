@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.hotelapp.R;
 import com.example.hotelapp.pojo.Guest;
+import com.example.hotelapp.ui.RoomReservation;
 import com.example.hotelapp.ui.main.GuestListAdapter;
 import com.example.hotelapp.ui.main.GuestsViewModel;
 import com.google.android.material.textfield.TextInputEditText;
@@ -50,7 +52,11 @@ public class RegistrationForm extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 registerGuest();
+                Intent i = new Intent(RegistrationForm.this, RoomReservation.class);
+                startActivity(i);
+
             }
         });
 
