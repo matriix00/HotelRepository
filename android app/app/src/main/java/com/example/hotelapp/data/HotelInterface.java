@@ -1,6 +1,7 @@
 package com.example.hotelapp.data;
 
 import com.example.hotelapp.pojo.Guest;
+import com.example.hotelapp.pojo.ReservationListModel;
 import com.example.hotelapp.pojo.Room;
 
 import java.util.List;
@@ -21,5 +22,8 @@ public interface HotelInterface {
 
     @POST("rooms/")
     Call<Room> bookRoom(@Body Room room);
+    @POST("reservations/")
+    Call<ReservationListModel> bookReservation(@Body ReservationListModel reservationListModel);
+
 }
 

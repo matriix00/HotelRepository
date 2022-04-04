@@ -1,6 +1,7 @@
 package com.example.hotelapp.data;
 
 import com.example.hotelapp.pojo.Guest;
+import com.example.hotelapp.pojo.ReservationListModel;
 import com.example.hotelapp.pojo.Room;
 
 import java.util.List;
@@ -36,4 +37,6 @@ public class HotelClient {
     public Single<List<Guest>> getGuestData(){return hotelInterface.getGuestData();}
     public Call<Guest> storeData(Guest guest){return hotelInterface.registerGuest(guest);}
     public Call<Room> bookRoom(Room room){return hotelInterface.bookRoom(room);}
+    public Call<ReservationListModel> bookReserve(ReservationListModel reservationListModel){return hotelInterface.bookReservation(reservationListModel);}
+
 }

@@ -22,7 +22,7 @@ class GuestList(APIView):
             serializer = GuestSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
-                send_mail( 'cofirmation message', 'Kindly Ignore','omar2018.dev@gmail.com',[serializer.data['email']],
+                send_mail( 'cofirmation message', 'cost is','omar2018.dev@gmail.com',[serializer.data['email']],
                    fail_silently = False,
                    )
                 return Response(serializer.data, status=status.HTTP_201_CREATED)

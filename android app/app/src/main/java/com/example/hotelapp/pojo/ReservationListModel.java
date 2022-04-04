@@ -12,8 +12,7 @@ public class ReservationListModel {
         this.room_id = room_id;
     }
 
-    public ReservationListModel() {
-    }
+
 
     public int getId() {
         return id;

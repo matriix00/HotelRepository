@@ -52,9 +52,11 @@ public class RegistrationForm extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Guest g=new Guest() ;
                 registerGuest();
                 Intent i = new Intent(RegistrationForm.this, RoomReservation.class);
+                Log.e(TAG, "onClick:gid "+g.getId() );
+                i.putExtra("guest_id",g.getId());
                 startActivity(i);
 
             }

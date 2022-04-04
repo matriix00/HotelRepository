@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.hotelapp.data.HotelClient;
 import com.example.hotelapp.pojo.Guest;
+import com.example.hotelapp.pojo.ReservationListModel;
 import com.example.hotelapp.pojo.Room;
 
 import org.json.JSONException;
@@ -37,5 +38,20 @@ public class RoomViewModel extends ViewModel {
             }
         });
 
+
+    }
+    public void bookreserve(ReservationListModel model){
+        Call<ReservationListModel> call = HotelClient.getInstance().bookReserve(model);
+        call.enqueue(new Callback<ReservationListModel>() {
+            @Override
+            public void onResponse(Call<ReservationListModel> call, Response<ReservationListModel> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<ReservationListModel> call, Throwable t) {
+
+            }
+        });
     }
 }

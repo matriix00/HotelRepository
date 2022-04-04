@@ -73,5 +73,15 @@
             android:textColor="#000"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
             tools:layout_editor_absoluteX="-14dp" />
+        <Button
+            android:id="@+id/reg_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go to registration"/>
+        <Button
+            android:id="@+id/employer_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go to employer"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

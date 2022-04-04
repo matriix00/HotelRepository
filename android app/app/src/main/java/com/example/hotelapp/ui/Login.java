@@ -16,7 +16,7 @@ import com.google.android.material.textfield.TextInputEditText;
 public class Login extends AppCompatActivity {
     private static final String TAG = "Login";
     TextInputEditText userEt,passEt;
-    Button loginBtn;
+    Button loginBtn,regBtn,empBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,25 @@ public class Login extends AppCompatActivity {
         userEt = findViewById(R.id.user_name);
         passEt = findViewById(R.id.password);
         loginBtn = findViewById(R.id.login);
+        regBtn = findViewById(R.id.reg_btn);
+        empBtn = findViewById(R.id.employer_btn);
 
+        regBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Login.this, RegistrationForm.class);
+                startActivity(i);
+                finish();
+            }
+        });
+        empBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Login.this, EmployerForm.class);
+                startActivity(i);
+                finish();
+            }
+        });
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,6 +52,7 @@ public class Login extends AppCompatActivity {
 
             }
         });
+
     }
 
     private boolean isUserNameValid(){

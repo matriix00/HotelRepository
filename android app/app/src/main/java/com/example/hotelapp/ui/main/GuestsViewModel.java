@@ -43,7 +43,7 @@ public class GuestsViewModel extends ViewModel {
         call.enqueue(new Callback<Guest>() {
             @Override
             public void onResponse(Call<Guest> call, Response<Guest> response) {
-                try {
+               /* try {
                     JSONObject jsonObject = new JSONObject(response.errorBody().string());
                     String result = jsonObject.getString("passid");
                     Log.e(TAG, "onResponse: evv : "+result );
@@ -51,7 +51,7 @@ public class GuestsViewModel extends ViewModel {
                     e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
-                }
+                }*/
 
             }
 
