@@ -14,13 +14,15 @@ class Guest(models.Model):
     mobile=models.IntegerField()
 
     def __str__(self) -> str:
-        return self
+        return self.name
     
 class Room(models.Model):
     type=models.CharField(max_length=20)
     room_id=models.IntegerField()
     cost=models.IntegerField()
     reserved=models.BooleanField(default=False)
+    def __str__(self) -> str:
+        return self.type
 
 
 
@@ -28,15 +30,17 @@ class Reservation(models.Model):
     guest_id=models.ForeignKey(Guest,related_name='guest_reserve_period',blank=True,on_delete=models.CASCADE)
     room_id=models.ForeignKey(Room,related_name='room_reserved',on_delete=models.CASCADE)
     period=models.IntegerField()
-    
+    def __str__(self) -> str:
+        return '%r'%(self.period)
     class Meta:
         unique_together = ['guest_id', 'room_id_id','period']
         ordering = ['room_id',]
+        
 
     
 
-    def __str__(self):
-        response = {"guest_id":self.guest_id.name, "room_id":self.room_id_id, "period":self.period}
+   # def __str__(self):
+    #    response = {"guest_id":self.guest_id.name, "room_id":self.room_id_id, "period":self.period}
         
         
         #return json.dumps(response,)
@@ -46,5 +50,5 @@ class Reservation(models.Model):
             #'period': self.period
         #})
         #return ' %d %d ' % ( self.room_id_id,self.period)
-        serialized_obj = serializers.serialize('json',[self.fields])
+        #serialized_obj = serializers.serialize('json',[self.fields])
         #return serialized_obj

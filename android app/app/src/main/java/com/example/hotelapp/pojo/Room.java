@@ -14,6 +14,9 @@ public class Room {
         this.reserved = reserved;
     }
 
+    public Room() {
+    }
+
     public int getId() {
         return id;
     }

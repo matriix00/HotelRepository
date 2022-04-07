@@ -38,6 +38,8 @@ public class RegistrationForm extends AppCompatActivity {
     TextInputEditText name,passid,mobile,email;
     Button registerBtn;
     Spinner spinner;
+    Guest g;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +54,6 @@ public class RegistrationForm extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Guest g=new Guest() ;
                 registerGuest();
                 Intent i = new Intent(RegistrationForm.this, RoomReservation.class);
                 Log.e(TAG, "onClick:gid "+g.getId() );
@@ -90,7 +91,9 @@ public class RegistrationForm extends AppCompatActivity {
             int mobileVal=Integer.parseInt(mobile.getText().toString());
             String spinnerVal=spinner.getSelectedItem().toString();
             Log.e(TAG, "registerGuest: evv :"+ passidVal+" "+nameVal+" "+emailVal+" "+mobileVal+" "+spinnerVal+" ");
-            guestsViewModel.register(new Guest(passidVal,nameVal,emailVal,mobileVal,spinnerVal));
+            g = new Guest(passidVal,nameVal,emailVal,mobileVal,spinnerVal);
+            g.setId(passidVal);
+            guestsViewModel.register(g);
         }
     }
 

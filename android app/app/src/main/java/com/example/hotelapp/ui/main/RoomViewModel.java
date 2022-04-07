@@ -45,12 +45,12 @@ public class RoomViewModel extends ViewModel {
         call.enqueue(new Callback<ReservationListModel>() {
             @Override
             public void onResponse(Call<ReservationListModel> call, Response<ReservationListModel> response) {
-
+                Log.e(TAG, "onResponse: done" );
             }
 
             @Override
             public void onFailure(Call<ReservationListModel> call, Throwable t) {
-
+                Log.e(TAG, "onFailure: "+t.getMessage().toString() );
             }
         });
     }
